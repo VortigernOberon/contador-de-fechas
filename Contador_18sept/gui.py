@@ -1,19 +1,19 @@
 import flet as ft
 import threading
 
-# Asegúrate de que el archivo font.py siga en la misma carpeta
+# Asegurate de que el archivo font.py siga en la misma carpeta
 from font import cuenta_regresiva
 
 def main(page: ft.Page):
-    # Diseño de la página web
+    # Diseno de la pagina web
     page.title = "Cuenta Regresiva 18 de Septiembre"
     
     # Usamos texto directo en lugar de ft.MainAxisAlignment para evitar errores
     page.vertical_alignment = "center"
     page.horizontal_alignment = "center"
-    page.bgcolor = "#263238"  # Color azul oscuro grisáceo
+    page.bgcolor = "#263238"  # Color azul oscuro grisaceo
 
-    # Texto que mostrará los números en pantalla
+    # Texto que mostrara los numeros en pantalla
     texto_tiempo = ft.Text(
         value="Calculando...", 
         size=60, 
@@ -23,11 +23,11 @@ def main(page: ft.Page):
     )
     page.add(texto_tiempo)
 
-    # Función que 'font.py' usará para actualizar la pantalla
+    # Funcion que 'font.py' usara para actualizar la pantalla
     def actualizar_pantalla(texto, terminado):
         texto_tiempo.value = texto
         if terminado:
-            # Si terminó, cambiamos a rojo y más grande para celebrar
+            # Si terminó, cambiamos a rojo y mas grande para celebrar
             texto_tiempo.color = "#EF5350"  # Color Rojo
             texto_tiempo.size = 70
         page.update()
@@ -39,5 +39,5 @@ def main(page: ft.Page):
     )
     hilo.start()
 
-# Lanzamos la aplicación web
+# Lanzamos la aplicacion web
 ft.app(target=main, view="web_browser")
